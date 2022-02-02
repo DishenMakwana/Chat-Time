@@ -1,0 +1,349 @@
+{
+    "info": {
+        "_postman_id": "90499db9-1a3b-4648-b532-c1ca0e538c89",
+        "name": "Chat Time",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Register",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"dishen\",\r\n    \"email\": \"dishen@gmail.com\",\r\n    \"password\": \"dishen@123\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/user",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "user"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\": \"dishen@gmail.com\",\r\n    \"password\": \"dishen@123\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/user/login",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "user", "login"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Search users",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU4ZWRmZTZmNzEzYWJmYWNiZmY3NiIsImlhdCI6MTY0MzUxOTkxMiwiZXhwIjoxNjQ2MTExOTEyfQ.Psu29TJuLHwZBUgOv5AU-c5pPgNdoPH7CEiyC-zwaLM",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/api/user?search=g",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "user"],
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "g"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Chats",
+            "item": [
+                {
+                    "name": "Create or Access a one to one chat",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"userId\": \"61f599b7bca185742c6084f4\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/chat/",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "chat", ""]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Fetching chats",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/api/chat/",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "chat", ""]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create a group",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Test Group\",\r\n    \"users\": \"[\\\"61f62c5422b048410b0ceb50\\\",\\\"61f599b7bca185742c6084f4\\\"]\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/chat/group",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "chat", "group"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Rename Chat",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"chatId\": \"61f62da85686905663f17fa4\",\r\n    \"chatName\": \"Test Group Updated\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/chat/rename",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "chat", "rename"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add user to Group",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"chatId\": \"61f62da85686905663f17fa4\",\r\n    \"userId\": \"61f63189b8d7636cf40c5fa2\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/chat/groupadd",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "chat", "groupadd"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove user from Group",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"chatId\": \"61f62da85686905663f17fa4\",\r\n    \"userId\": \"61f62c5422b048410b0ceb50\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/chat/groupremove",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "chat", "groupremove"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Messages",
+            "item": [
+                {
+                    "name": "sending a new Message",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"content\": \"Hello\",\r\n    \"chatId\": \"61f62da85686905663f17fa4\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/api/message",
+                            "host": ["{{URL}}"],
+                            "path": ["api", "message"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Fetch all messages for a chat",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{TOKEN}}",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/api/message/61f62da85686905663f17fa4",
+                            "host": ["{{URL}}"],
+                            "path": [
+                                "api",
+                                "message",
+                                "61f62da85686905663f17fa4"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "URL",
+            "value": "http://localhost:5000"
+        },
+        {
+            "key": "TOKEN",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU4ZWRmZTZmNzEzYWJmYWNiZmY3NiIsImlhdCI6MTY0MzUxOTkxMiwiZXhwIjoxNjQ2MTExOTEyfQ.Psu29TJuLHwZBUgOv5AU-c5pPgNdoPH7CEiyC-zwaLM"
+        }
+    ]
+}
