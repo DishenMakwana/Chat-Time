@@ -57,7 +57,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         } catch (error) {
             toast({
                 title: 'Error Occurred!',
-                description: error.response.data.message,
+                description: error.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -94,7 +94,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         } catch (error) {
             toast({
                 title: 'Error Occurred!',
-                description: error.response.data.message,
+                description: error.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -151,7 +151,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         } catch (error) {
             toast({
                 title: 'Error Occurred!',
-                description: error.response.data.message,
+                description: error.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -201,7 +201,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         } catch (error) {
             toast({
                 title: 'Error Occurred!',
-                description: error.response.data.message,
+                description: error.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,

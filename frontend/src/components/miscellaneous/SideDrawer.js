@@ -85,7 +85,7 @@ export const SideDrawer = () => {
         } catch (err) {
             toast({
                 title: 'Error Occurred!',
-                description: err.response.data.message,
+                description: err.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -117,7 +117,7 @@ export const SideDrawer = () => {
         } catch (err) {
             toast({
                 title: 'Error Occurred!',
-                description: err.response.data.message,
+                description: err.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,

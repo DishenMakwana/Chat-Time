@@ -11,16 +11,18 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { ChatState } from '../../Context/ChatProvider';
 
 export const Signup = () => {
     const [show, setShow] = useState(false);
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [pic, setPic] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const { setUser } = ChatState();
 
     const toast = useToast();
     const history = useHistory();
@@ -121,12 +123,13 @@ export const Signup = () => {
             });
 
             localStorage.setItem('userInfo', JSON.stringify(data));
+            setUser(data);
             setLoading(false);
             history.push('/chats');
         } catch (err) {
             toast({
                 title: 'Registration Failed!',
-                description: err.response.data.message,
+                description: err.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -135,6 +138,8 @@ export const Signup = () => {
             setLoading(false);
         }
     };
+
+    // console.log('signup render');
 
     return (
         <VStack spacing='5px'>

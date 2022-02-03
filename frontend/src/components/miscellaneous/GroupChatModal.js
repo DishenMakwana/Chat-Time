@@ -68,7 +68,7 @@ export const GroupChatModal = ({ children }) => {
         } catch (err) {
             toast({
                 title: 'Error searching for users',
-                description: [err.response.data.message, search],
+                description: [err.message, search],
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -124,7 +124,7 @@ export const GroupChatModal = ({ children }) => {
         } catch (err) {
             toast({
                 title: 'Error creating group chat',
-                description: err.response.data.message,
+                description: err.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,

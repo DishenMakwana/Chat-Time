@@ -11,6 +11,7 @@ import {
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ChatState } from '../../Context/ChatProvider';
 
 export const Login = () => {
     const [show, setShow] = useState(false);
@@ -18,6 +19,8 @@ export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const { setUser } = ChatState();
 
     const toast = useToast();
     const history = useHistory();
@@ -63,12 +66,13 @@ export const Login = () => {
             });
 
             localStorage.setItem('userInfo', JSON.stringify(data));
+            setUser(data);
             setLoading(false);
             history.push('/chats');
         } catch (err) {
             toast({
                 title: 'Login Failed',
-                description: err.response.data.message,
+                description: err.message,
                 status: 'error',
                 duration: 5000,
                 isClosable: true,
@@ -77,6 +81,8 @@ export const Login = () => {
             setLoading(false);
         }
     };
+
+    // console.log('login render');
 
     return (
         <VStack spacing='10px'>

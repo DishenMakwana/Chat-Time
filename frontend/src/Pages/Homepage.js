@@ -22,6 +22,8 @@ export const Homepage = () => {
         if (user) history.push('/chats');
     }, [history]);
 
+    // console.log('homepage render');
+
     return (
         <Container maxW='xl' centerContent>
             <Box
